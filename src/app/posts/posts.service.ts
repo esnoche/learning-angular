@@ -75,6 +75,18 @@ export class PostsService {
 
     }
 
+    // editPost(id: string, title: string, content: string) {
+    //     const post: postCreation = {
+    //         title: title,
+    //         content: content
+    //     }
+    //     this.http.put<{message: string}>(`http://localhost:3000/api/posts/edit-post/${id}`, post)
+    //     .subscribe((response)=>{
+    //         console.log(response.message);
+    //         this.getPosts();
+    //     })
+    // }
+
     deletePost(id: string) {
         this.http.delete<{ message: string }>(`http://localhost:3000/api/posts/delete-post/${id}`)
             .subscribe((response) => {
