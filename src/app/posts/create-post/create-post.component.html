@@ -1,0 +1,52 @@
+<h4>create-post component</h4>
+
+<!-- <textarea rows="6" [value]="newPost" #textAreaHook></textarea> -->
+
+<!-- <mat-card>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="enteredTitle">
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput rows="6" [(ngModel)]="enteredContent"></textarea>
+    </mat-form-field>
+
+    <button
+    mat-raised-button
+    color="primary"
+    (click)="onCreatePost()">create</button>
+</mat-card> -->
+
+
+<mat-card>
+    <form (submit)="onCreatePost(postForm)" #postForm="ngForm" >
+        <mat-form-field>
+            <input
+            matInput    
+            type="text"
+            placeholder="Enter title"
+            name="enteredTitle"
+            ngModel
+            required
+            #title="ngModel">
+            <mat-error *ngIf="title.invalid">Please enter a post title!!</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea
+            matInput
+            rows="3"
+            placeholder="Enter content"
+            name="enteredContent"
+            ngModel
+            required
+            #content="ngModel"></textarea>
+            <mat-error *ngIf="!content.value">Please enter content for post!!</mat-error>
+        </mat-form-field>
+        <button
+        type="submit"
+        mat-raised-button
+        color="primary">
+            create
+        </button>
+    </form>
+</mat-card>

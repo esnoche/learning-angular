@@ -1,0 +1,19 @@
+<mat-accordion *ngIf="postList.length > 0">
+
+    <mat-expansion-panel *ngFor="let post of postList">
+        <mat-expansion-panel-header>
+            {{post.title}}
+        </mat-expansion-panel-header>
+        <p>{{post.content}}</p>
+        <mat-action-row>
+            <button mat-button color="basic">EDIT</button>
+            <button mat-button color="warn" (click)="onDelete(post._id)">DELETE</button> 
+        </mat-action-row>
+    </mat-expansion-panel>
+
+</mat-accordion>
+
+<p class="place-holder mat-body-1 " *ngIf="postList.length <= 0">No posts yet!!</p>
+
+
+<!-- (click)="onDelete()" -->
